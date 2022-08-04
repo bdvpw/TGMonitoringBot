@@ -17,6 +17,8 @@ class HardwareFetchService {
 
     public fun fetch(): Hardware {
 
+        println("Fetching hardware information")
+
         val decimalFormat = DecimalFormat("#.##", DecimalFormatSymbols(Locale.ENGLISH))
         decimalFormat.roundingMode = RoundingMode.CEILING
 
