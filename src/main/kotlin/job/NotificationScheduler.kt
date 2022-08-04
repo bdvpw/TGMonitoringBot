@@ -38,7 +38,7 @@ class NotificationScheduler(val service: NotifyService, val interval: Long, val 
             valuesMap.put("availableMemory", hardware.availableMemory.toString())
             valuesMap.put("timestamp", timestamp)
 
-            val message = TemplateProcessService().process(valuesMap, "templates/reportMessage")
+            val message = TemplateProcessService().process(valuesMap, "/templates/reportMessage")
 
             if (message != null) {
                 service.sendMessage(message, "HTML")

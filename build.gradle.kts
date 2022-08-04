@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.nominori"
-version = "1.0-SNAPSHOT"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -22,7 +22,9 @@ dependencies {
     implementation("io.ktor:ktor-serialization-gson:2.0.3")
     implementation("com.andreapivetta.kolor:kolor:1.0.0")
     implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.5")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.10")
     implementation("org.apache.commons:commons-text:1.9")
+    implementation("com.google.guava:guava:31.1-jre")
 }
 
 tasks.test {
@@ -31,6 +33,17 @@ tasks.test {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "16"
+}
+
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "MainKt"
+    }
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    configurations.compileClasspath.get().forEach {
+        from(if (it.isDirectory) it else zipTree(it))
+    }
 }
 
 application {

@@ -2,6 +2,7 @@ package core
 
 import com.andreapivetta.kolor.Color
 import com.andreapivetta.kolor.Kolor
+import com.google.common.io.Resources
 import job.NotificationScheduler
 import service.notify.TelegramService
 import java.io.BufferedReader
@@ -9,6 +10,7 @@ import java.io.File
 import java.io.FileInputStream
 import java.io.InputStream
 import java.io.InputStreamReader
+import java.net.URL
 import java.nio.charset.StandardCharsets
 import java.util.stream.Collector
 import java.util.stream.Collectors
@@ -22,16 +24,11 @@ class Startup() {
     }
 
     private fun logo(): String {
-
-        val loader = javaClass.classLoader
-        val file = File(loader.getResource("startup/logo").file)
-        val inputStream = FileInputStream(file);
-
-        val text: String = BufferedReader(InputStreamReader(inputStream, StandardCharsets.UTF_8))
-            .lines()
-            .collect(Collectors.joining("\n"))
-
+        val text: String = getResourceAsText("/startup/logo").toString()
         return Kolor.foreground(text, Color.YELLOW)
     }
+
+    private fun getResourceAsText(path: String): String? =
+        object {}.javaClass.getResource(path)?.readText()
 
 }

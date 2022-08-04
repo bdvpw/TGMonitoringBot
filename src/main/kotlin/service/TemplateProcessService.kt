@@ -1,10 +1,12 @@
 package service
 
+import com.google.common.io.Resources
 import org.apache.commons.text.StringSubstitutor
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileInputStream
 import java.io.InputStreamReader
+import java.net.URL
 import java.nio.charset.StandardCharsets
 import java.time.Instant
 import java.time.ZoneId
@@ -19,15 +21,8 @@ class TemplateProcessService {
 
     fun process(valuesMap: HashMap<String, String>, filePath: String): String? {
 
-        val loader = javaClass.classLoader
-        val file = File(loader.getResource(filePath).file)
-        val inputStream = FileInputStream(file);
-
-        val templateText: String = BufferedReader(InputStreamReader(inputStream, StandardCharsets.UTF_8))
-            .lines()
-            .collect(Collectors.joining("\n"))
-
-        return StringSubstitutor(valuesMap).replace(templateText)
+        val text: String = getResourceAsText(filePath).toString()
+        return StringSubstitutor(valuesMap).replace(text)
     }
 
     fun formatTimestamp(timestamp: Instant): String {
@@ -37,6 +32,9 @@ class TemplateProcessService {
 
         return formatter.format(timestamp)
     }
+
+    private fun getResourceAsText(path: String): String? =
+        object {}.javaClass.getResource(path)?.readText()
 
 
 }
