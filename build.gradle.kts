@@ -22,6 +22,7 @@ dependencies {
     implementation("io.ktor:ktor-serialization-gson:2.0.3")
     implementation("com.andreapivetta.kolor:kolor:1.0.0")
     implementation("org.jetbrains.kotlinx:kotlinx-cli:0.3.5")
+    implementation("org.apache.commons:commons-text:1.9")
 }
 
 tasks.test {

@@ -1,0 +1,14 @@
+🟡 Server report 📄
+
+<b> 📊 Usage: </b>
+
+CPU Usage: <b>${cpuUsage}%</b>
+Memory Usage: <b>${memoryUsage}%</b>
+Uptime: <b>${uptime}</b>
+
+<b> ℹ️ Server specifications: </b>
+
+Total memory (RAM): <b>${totalMemory} MB</b>
+Available memory (RAM): <b>${availableMemory} MB</b>
+____________________________
+📅  <i>${timestamp}</i>
