@@ -24,12 +24,17 @@ class TelegramService : NotifyService {
                 gson()
             }
         }
+
+        println("Sending message to telegram chat..")
+
         val response: HttpResponse =
             client.post(urlString = TG_URL) {
                 contentType(ContentType.Application.Json)
                 setBody(TelegramMessage(TG_CHAT_ID, text, parseMode))
             }
-        println("Send message. Response: $response.status")
+
+        println(response.bodyAsText())
+
     }
 
 }
