@@ -1,3 +1,5 @@
+![](https://github.com/nominori-dev/TGMonitoringBot/banner.png)
+
 # Server Monitoring Bot
 
 Cross-platform bot for monitoring your server and sending reports to chats (currently supported only
