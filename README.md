@@ -1,4 +1,4 @@
-![](https://github.com/nominori-dev/TGMonitoringBot/banner.png)
+![](https://github.com/nominori-dev/TGMonitoringBot/blob/master/banner.png)
 
 # Server Monitoring Bot
 
