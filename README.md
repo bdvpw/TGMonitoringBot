@@ -5,6 +5,8 @@
 Cross-platform bot for monitoring your server and sending reports to chats (currently supported only
 telegram). 
 
+This project is under BDV Foundation.
+
 ## Overview
 
 Current features:

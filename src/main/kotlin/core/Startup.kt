@@ -17,7 +17,6 @@ import java.util.stream.Collectors
 
 class Startup() {
 
-
     fun run(notifyInterval: Long) {
         println(logo())
         NotificationScheduler(TelegramService(), notifyInterval, 0).start()
