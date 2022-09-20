@@ -15,15 +15,12 @@ Current features:
 * CLI Args
 * Sending messages to telegram
 * Background jobs 
+* Logging via Kotlin-Logging (Logback backend)
 
 Planned features:
 * More templates
 * Discord/Slack/VK Messenger support
-* Logging
 
-
-Known issues:
-* Logging via logback, lg4j, etc.. not working
 
 
 ## Environment Variables and Set Up
@@ -57,3 +54,4 @@ java -jar TGMonitoringBot-<version>.jar --help
 
 - [@nominori-dev](https://www.github.com/nominori-dev)
 
+_Project is under BDV Foundation umbrella_
