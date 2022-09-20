@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.nominori"
-version = "1.0.0"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -15,6 +15,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    implementation("io.github.microutils:kotlin-logging-jvm:3.0.0")
     implementation("com.github.oshi:oshi-core:6.2.2")
     implementation("io.ktor:ktor-client-core:2.0.3")
     implementation("io.ktor:ktor-client-cio:2.0.3")
@@ -25,6 +26,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.5.10")
     implementation("org.apache.commons:commons-text:1.9")
     implementation("com.google.guava:guava:31.1-jre")
+    implementation("org.slf4j:slf4j-api:2.0.1")
+    implementation("ch.qos.logback:logback-classic:1.4.1")
 }
 
 tasks.test {

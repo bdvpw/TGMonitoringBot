@@ -1,6 +1,7 @@
 package service
 
 import model.Hardware
+import mu.KotlinLogging
 import oshi.SystemInfo
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -11,14 +12,16 @@ import kotlin.math.roundToInt
 
 class HardwareFetchService {
 
+    private val logger = KotlinLogging.logger{}
+
     companion object {
         const val MEGABYTE = 1024L * 1024L;
         var systemInfo: SystemInfo = SystemInfo();
     }
 
-    public fun fetch(): Hardware {
+    fun fetch(): Hardware {
 
-        println("Fetching hardware information")
+        logger.info { "Fetching information about hardware..." }
 
         val decimalFormat = DecimalFormat("#.##", DecimalFormatSymbols(Locale.ENGLISH))
         decimalFormat.roundingMode = RoundingMode.CEILING

@@ -1,10 +1,8 @@
 import core.Startup
 import kotlinx.cli.*
-import service.HardwareFetchService
-import service.notify.TelegramService
 import java.util.concurrent.TimeUnit
 
-suspend fun main(args: Array<String>) {
+fun main(args: Array<String>) {
     val parser = ArgParser("BDVMonitoringBot")
     val interval by parser.option(
         ArgType.Int, shortName = "i", description = "Message sending interval"

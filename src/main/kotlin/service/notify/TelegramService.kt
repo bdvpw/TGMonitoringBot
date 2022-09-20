@@ -8,10 +8,13 @@ import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.serialization.gson.*
 import model.notify.TelegramMessage
+import mu.KotlinLogging
 import service.api.NotifyService
 import java.lang.System.getenv
 
 class TelegramService : NotifyService {
+
+    private val logger = KotlinLogging.logger{}
 
     companion object {
         var TG_CHAT_ID: String = getenv("TG_CHAT_ID")
@@ -25,7 +28,7 @@ class TelegramService : NotifyService {
             }
         }
 
-        println("Sending message to telegram chat..")
+        logger.info { "POST Request to Telegram API. Sending message to: " + TG_CHAT_ID }
 
         val response: HttpResponse =
             client.post(urlString = TG_URL) {
@@ -33,8 +36,7 @@ class TelegramService : NotifyService {
                 setBody(TelegramMessage(TG_CHAT_ID, text, parseMode))
             }
 
-        println(response.bodyAsText())
-
+        logger.info { "Response from Telegram API: " + response.status.value}
     }
 
 }

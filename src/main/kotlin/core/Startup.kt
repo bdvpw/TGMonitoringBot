@@ -4,6 +4,7 @@ import com.andreapivetta.kolor.Color
 import com.andreapivetta.kolor.Kolor
 import com.google.common.io.Resources
 import job.NotificationScheduler
+import mu.KotlinLogging
 import service.notify.TelegramService
 import java.io.BufferedReader
 import java.io.File
@@ -17,8 +18,11 @@ import java.util.stream.Collectors
 
 class Startup() {
 
+    private val logger = KotlinLogging.logger{}
+
     fun run(notifyInterval: Long) {
         println(logo())
+        logger.info { "TGMonitoringBot started." }
         NotificationScheduler(TelegramService(), notifyInterval, 0).start()
     }
 
