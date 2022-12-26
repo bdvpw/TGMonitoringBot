@@ -19,7 +19,7 @@ Current features:
 
 Planned features:
 * More templates
-* Discord/Slack/VK Messenger support
+* Discord/Slack support
 
 
 
